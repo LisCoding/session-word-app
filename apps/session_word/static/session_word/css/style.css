@@ -1,0 +1,36 @@
+h1 {
+  color: purple;
+}
+
+#checkbox, #submit {
+  padding-top: 10px;
+  display: block;
+  font-weight: bold;
+}
+label {
+  font-weight: bold;
+}
+
+div {
+  padding: 20px 30px;
+  display: inline-block;
+  vertical-align: top;
+  border: 2px solid blue;
+  margin-left: 150px;
+
+}
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+.green {
+  color: green;
+}
+.big {
+  font-size: 50px;
+}
+.small {
+  font-size: 20px;
+}

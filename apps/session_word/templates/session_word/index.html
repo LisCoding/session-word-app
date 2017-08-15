@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Session Word</title>
+    {% load static %}
+    <!-- The line above tells Django to be ready to listen for static files -->
+    <link rel="stylesheet" href="{% static 'session_word/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <div class="left-content">
+      <h1>hello there!</h1>
+      <h1>Add a new word</h1>
+      <form class="" action="/session_word/process" method="post">
+        {% csrf_token %}
+        <input type="text" name="user_input" value="">
+        <h4>Chose a Color</h4>
+        <label for="">Red</label>
+        <input type="radio" name="color" value="red">
+        <label for="">Green</label>
+        <input type="radio" name="color" value="green">
+        <label for="">Blue</label>
+        <input type="radio" name="color" value="blue">
+        <label id="checkbox" for="checkbox"> show in BIG fonts</label>
+        <input type="checkbox" name="font" value="big">
+        <input id="submit" type="submit" name="" value="Add to session">
+      </form>
+    </div>
+    <div id="right-content">
+      <form class="" action="/session_word/reset" method="post">
+        {% csrf_token %}
+        <input type="submit" name="clear-session" value="Clear Session">
+      </form>
+      {% for info in request.session.history %}
+      <p><span class="{{info.color}} {{info.font}}">{{info.user_input}}</span> added on: {{info.time}}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
